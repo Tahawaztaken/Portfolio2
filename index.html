@@ -12,6 +12,9 @@
 
       <!--=============== CSS ===============-->
       <link rel="stylesheet" href="assets/css/styles.css">
+      <!--=============== 3DMODEL ===============-->
+      <script type="module" src="https://unpkg.com/@splinetool/viewer/build/spline-viewer.js"></script>
+      <script type="module" src="https://unpkg.com/@splinetool/viewer@0.9.492/build/spline-viewer.js"></script>
 
       <title>Responsive portfolio website Rian - Bedimcode</title>
    </head>
@@ -102,7 +105,41 @@
 
          <!--==================== ABOUT ====================-->
          <section class="about section" id="about">
-            
+            <div class="about__container container grid">
+                <h2 class="section__title-1">
+                    About Me.
+                </h2>
+
+                <div class="about__perfil">
+                    <div class="about__image">
+                        <img src="assets/img/about-perfil.jpg" alt="image" class="about__img">
+
+                        <div class="about__shadow"></div>
+
+                        <div class="geometric-box"></div>
+                        <img src="assets/img/random-lines.svg" alt="image" class="about__line">
+                        <div class="about__box"></div>
+                    </div>
+                </div>
+                <div class="about__info">
+                    <p class="about__description">
+                        This is me. Passionate about aboslutely nothing. I just want money and nothin else. I hate my clients and my work.
+                    </p>
+                    <ul class="about__list">
+                        <li class="about__item">
+                            <b>My Skills Are:</b> Python, JavaScript, C#, Flask, ASP.NET, Git & Github
+                        </li>
+                    </ul>
+                    <div class="about__buttons">
+                        <a href="#contact" class="button">
+                            <i class="ri-send-plane-line"></i> Contact Me
+                        </a>
+                        <a href="https://www.linkedin.com/in/taha-faisal/" target="_blank" class="button__ghost">
+                            <i class="ri-linkedin-box-line"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
          </section>
 
          <!--==================== SERVICES ====================-->
