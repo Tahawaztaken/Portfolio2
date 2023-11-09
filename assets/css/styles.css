@@ -338,6 +338,7 @@ img {
 }
 
 .home__img{
+  height: 400px;
   position: relative;
   z-index: 10;
 }

@@ -13,8 +13,7 @@
       <!--=============== CSS ===============-->
       <link rel="stylesheet" href="assets/css/styles.css">
       <!--=============== 3DMODEL ===============-->
-      <script type="module" src="https://unpkg.com/@splinetool/viewer/build/spline-viewer.js"></script>
-      <script type="module" src="https://unpkg.com/@splinetool/viewer@0.9.492/build/spline-viewer.js"></script>
+      <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
       <title>Responsive portfolio website Rian - Bedimcode</title>
    </head>
@@ -67,7 +66,8 @@
                 </h1>
                 <div class="home__perfil">
                     <div class="home__image">
-                        <img src="assets/img/home-perfil.jpg" alt="profile image" class="home__img">
+                        <!-- <img src="assets/img/home-perfil.jpg" alt="profile image" class="home__img"> -->
+                        <model-viewer class="home__img" src="assets/img/mansitting.glb" camera-controls interaction-prompt="none" auto-rotate disable-zoom shadow-intensity="1.5" disable-pan></model-viewer>
                         <div class="home__shadow"></div>
 
                         <img src="assets/img/curved-arrow.svg" alt="" class="home__arrow">
@@ -261,7 +261,7 @@
             <div class="contact__container grid">
                 <div class="contact__data">
                     <h2 class="section__title-2">
-                        <span>Contact Me.</span>
+                        <span>Contact Me. Please.</span>
                     </h2>
 
                     <p class="contact__description-1">
