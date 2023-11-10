@@ -51,3 +51,12 @@ window.addEventListener('scroll', shadowHeader)
 
 
 /*=============== SCROLL REVEAL ANIMATION ===============*/
+
+
+/////
+// Get the model viewer element
+// const modelViewer = document.getElementById('myModelViewer');
+
+// // Set the initial camera position (adjust values as needed)
+// modelViewer.cameraOrbit = '0deg 0deg';  // Set the initial camera orbit
+// modelViewer.fieldOfView = '34deg';      // Set the initial field of view (adjust as needed)

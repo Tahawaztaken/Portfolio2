@@ -335,9 +335,11 @@ img {
 
 .home__image{
   width: 220px;
+  margin-right: 1rem;
 }
 
 .home__img{
+  width: 130%;
   height: 400px;
   position: relative;
   z-index: 10;
