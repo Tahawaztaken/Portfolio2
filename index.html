@@ -12,11 +12,11 @@
 
       <!--=============== CSS ===============-->
       <link rel="stylesheet" href="assets/css/styles.css">
+
       <!--=============== 3DMODEL ===============-->
-      <!-- <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script> -->
       <script type="module" src="assets/js/3Dscript.js" defer></script>
 
-      <title>Responsive portfolio website Rian - Bedimcode</title>
+      <title>Taha Faisal</title>
    </head>
    <body>
       <!--==================== HEADER ====================-->
@@ -304,6 +304,8 @@
                             <label for="message" class="contact__label"></label>
                         </div>
 
+                        <p class="contact__message" id="contact-message"></p>
+
                         <button type="submit" class="contact__button button">
                             <i class="ri-send-plane-line"> Send Message</i>
                         </button>
@@ -315,18 +317,36 @@
 
       <!--==================== FOOTER ====================-->
       <footer class="footer">
-         
+         <div class="footer__container container grid">
+            <ul class="footer__links">
+                <li>
+                    <a href="#home" class="footer__link">Home</a>
+                </li>
+                <li>
+                    <a href="#about" class="footer__link">About</a>
+                </li>
+                <li>
+                    <a href="#projects" class="footer__link">Projects</a>
+                </li>
+            </ul>
+
+            <span class="footer__copy">
+                © All Rights Reserved By <a href="">Syed Taha Faisal.</a>
+            </span>
+         </div>
       </footer>
 
       <!--========== SCROLL UP ==========-->
-      
+      <a href="#" class="scrollup" id="scroll-up">
+        <i class="ri-arrow-up-s-line"></i>
+      </a>
 
       <!--=============== SCROLLREVEAL ===============-->
       <script src=""></script>
       
       <!--=============== EMAIL JS ===============-->
       
-
+      <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
       <!--=============== MAIN JS ===============-->
       <script src="assets/js/main.js"></script>
    </body>
