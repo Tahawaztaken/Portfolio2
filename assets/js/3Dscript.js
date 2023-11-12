@@ -37,10 +37,22 @@ const light = new THREE.DirectionalLight(0xffffff, 2)
 light.position.set(0, 2, 10)
 scene.add(light)
 
+
+
+const parentContainer = document.getElementById("home-perfil");
+
+// const sizes = {
+//     width: window.innerHeight / 2.5,
+//     height: window.innerHeight / 2
+// }
+
 const sizes = {
-    width: window.innerWidth / 2,
-    height: window.innerHeight / 2
+    width: parentContainer.offsetWidth * 1.25,
+    height: parentContainer.offsetHeight
 }
+
+console.log(sizes.width, sizes.height)
+
 
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.001, 100)
 camera.position.z = 1
