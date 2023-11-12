@@ -13,7 +13,8 @@
       <!--=============== CSS ===============-->
       <link rel="stylesheet" href="assets/css/styles.css">
       <!--=============== 3DMODEL ===============-->
-      <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+      <!-- <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script> -->
+      <script type="module" src="assets/js/3Dscript.js" defer></script>
 
       <title>Responsive portfolio website Rian - Bedimcode</title>
    </head>
@@ -67,7 +68,8 @@
                 <div class="home__perfil">
                     <div class="home__image">
                         <!-- <img src="assets/img/home-perfil.jpg" alt="profile image" class="home__img"> -->
-                        <model-viewer id="myModelViewer" class="home__img" src="assets/img/modeltest.glb" camera-controls interaction-prompt="none" field-Of-View="33deg" camera-orbit="20deg 90deg" auto-rotate disable-zoom shadow-intensity="0.5" disable-pan></model-viewer>
+                        <!-- <model-viewer id="myModelViewer" class="home__img" src="assets/img/3d_character_young_boy.glb" autoplay ar ar-modes="webxr scene-viewer" camera-controls interaction-prompt="none" field-Of-View="33deg" camera-orbit="20deg 90deg" auto-rotate disable-zoom shadow-intensity="0.5" disable-pan></model-viewer> -->
+                        <canvas class="webgl home__img" id="3d-container"></canvas>
                         <div class="home__shadow"></div>
 
                         <img src="assets/img/curved-arrow.svg" alt="" class="home__arrow">
