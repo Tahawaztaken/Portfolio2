@@ -41,24 +41,13 @@ scene.add(light)
 
 const parentContainer = document.getElementById("home-perfil");
 
-// const sizes = {
-//     width: window.innerHeight / 2.5,
-//     height: window.innerHeight / 2
-// }
-
 const sizes = {
     width: parentContainer.offsetWidth * 1.25,
     height: parentContainer.offsetHeight
 }
 
-console.log(sizes.width, sizes.height)
-
-
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.001, 100)
 camera.position.z = 1
-
-
-
 scene.add(camera)
 
 const canvas = document.querySelector('.webgl')
@@ -75,7 +64,29 @@ controls.enableZoom = true;
 controls.minPolarAngle = Math.PI / 2 - 0.4; // radians
 controls.maxPolarAngle = Math.PI / 2 - 0.4 ; // radians
 
-renderer.setSize(sizes.width, sizes.height) // Update canvas size on window resize
+function handleScreenChange(mediaQuery) {
+    if (mediaQuery.matches) {
+      // The screen width is below 340px, so you can execute your code here
+      const newWidth = 230;
+      const newHeight = sizes.height;
+
+      console.log("Screen width is below 340px");
+      renderer.setSize(newWidth, newHeight);
+      camera.aspect = newWidth / newHeight;
+      camera.updateProjectionMatrix();
+    }
+  }
+const mediaQuery = window.matchMedia("(max-width: 340px)");
+
+
+handleScreenChange(mediaQuery);
+
+
+mediaQuery.addEventListener('change', handleScreenChange);;
+
+
+renderer.setSize(sizes.width, sizes.height);
+
 
 
 
