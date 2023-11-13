@@ -64,7 +64,9 @@ controls.enableZoom = true;
 controls.minPolarAngle = Math.PI / 2 - 0.4; // radians
 controls.maxPolarAngle = Math.PI / 2 - 0.4 ; // radians
 
-function handleScreenChange(mediaQuery) {
+
+//MEDIA SCREEN 340PX
+function handleScreenChangeSmall(mediaQuery) {
     if (mediaQuery.matches) {
       // The screen width is below 340px, so you can execute your code here
       const newWidth = 230;
@@ -76,13 +78,31 @@ function handleScreenChange(mediaQuery) {
       camera.updateProjectionMatrix();
     }
   }
-const mediaQuery = window.matchMedia("(max-width: 340px)");
+const mediaQuerySmall = window.matchMedia("(max-width: 340px)");
+mediaQuerySmall.addEventListener('change', handleScreenChangeSmall);;
+
+//MEDIA SCREEN 341 - 576PX
+function handleScreenChangeMedium(mediaQuery) {
+    if (mediaQuery.matches) {
+      // The screen width is below 340px, so you can execute your code here
+      const newWidth = 280;
+      const newHeight = sizes.height;
+
+      console.log("Screen width is below 340px");
+      renderer.setSize(newWidth, newHeight);
+      camera.aspect = newWidth / newHeight;
+      camera.updateProjectionMatrix();
+    }
+  }
+const mediaQueryMedium = window.matchMedia("(min-width: 341px) and (max-width: 576px)");
+mediaQueryMedium.addEventListener('change', handleScreenChangeMedium);;
 
 
-handleScreenChange(mediaQuery);
 
 
-mediaQuery.addEventListener('change', handleScreenChange);;
+
+
+
 
 
 renderer.setSize(sizes.width, sizes.height);
