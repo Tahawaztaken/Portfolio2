@@ -128,12 +128,25 @@ themeButton.addEventListener('click', () => {
 })
 
 /*=============== SCROLL REVEAL ANIMATION ===============*/
+const sr = ScrollReveal({
+    origin:'top',
+    distance: '60px',
+    duration: 2500,
+    delay: 400,
+    // reset: true
+})
+
+sr.reveal('.home__perfil', {origin: 'left'})
+sr.reveal('.home__info', {origin: 'right'})
+
+sr.reveal('.about__info', {origin: 'left'})
+sr.reveal('.about__image', {origin: 'right'})
 
 
-/////
-// Get the model viewer element
-// const modelViewer = document.getElementById('myModelViewer');
+sr.reveal('.projects__card', {interval: 100})
 
-// // Set the initial camera position (adjust values as needed)
-// modelViewer.cameraOrbit = '0deg 0deg';  // Set the initial camera orbit
-// modelViewer.fieldOfView = '34deg';      // Set the initial field of view (adjust as needed)
+
+sr.reveal('.contact__data', {origin: 'left'})
+sr.reveal('.contact__mail', {origin: 'right'})
+
+
