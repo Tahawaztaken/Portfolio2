@@ -94,9 +94,24 @@ function handleScreenChangeMedium(mediaQuery) {
       camera.updateProjectionMatrix();
     }
   }
-const mediaQueryMedium = window.matchMedia("(min-width: 341px) and (max-width: 576px)");
+const mediaQueryMedium = window.matchMedia("(min-width: 341px) and (max-width: 1149px)");
 mediaQueryMedium.addEventListener('change', handleScreenChangeMedium);;
 
+//MEDIA SCREEN 341 - 576PX
+function handleScreenChangeLarge(mediaQuery) {
+    if (mediaQuery.matches) {
+      // The screen width is below 340px, so you can execute your code here
+      const newWidth = 430;
+      const newHeight = sizes.height * 1.5;
+
+      console.log("Screen width is below 340px");
+      renderer.setSize(newWidth, newHeight);
+      camera.aspect = newWidth / newHeight;
+      camera.updateProjectionMatrix();
+    }
+  }
+const mediaQueryLarge = window.matchMedia("(min-width: 1150px)");
+mediaQueryLarge.addEventListener('change', handleScreenChangeLarge);;
 
 
 
