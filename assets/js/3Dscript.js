@@ -1,15 +1,19 @@
 import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.121.1/build/three.module.js";
 import { FBXLoader } from "https://cdn.jsdelivr.net/npm/three@0.121.1/examples/jsm/loaders/FBXLoader.js";
 import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.121.1/examples/jsm/controls/OrbitControls.js';
-
+import { EffectComposer } from 'https://cdn.jsdelivr.net/npm/three@0.121.1/examples/jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from 'https://cdn.jsdelivr.net/npm/three@0.121.1/examples/jsm/postprocessing/RenderPass.js';
+import { ShaderPass } from 'https://cdn.jsdelivr.net/npm/three@0.121.1/examples/jsm/postprocessing/ShaderPass.js';
+import { CopyShader } from 'https://cdn.jsdelivr.net/npm/three@0.121.1/examples/jsm/shaders/CopyShader.js';
 const scene = new THREE.Scene()
 
 // Instantiate a loader
 const loader = new FBXLoader();
 
 let earthMesh; // Store the reference to the loaded object
-
-loader.load( 'assets/img/LookAround.fbx', function ( fbx ) {
+//'assets/img/NeutralIdle.fbx'
+//'assets/img/LookAround.fbx'
+loader.load( 'assets/img/NeutralIdle.fbx', function ( fbx ) {
     const root = fbx;
     root.scale.set(2, 2, 2);
     root.position.set(0, -0.6, 0);
@@ -32,10 +36,21 @@ loader.load( 'assets/img/LookAround.fbx', function ( fbx ) {
     console.error(error);
 });
 
-
-const light = new THREE.DirectionalLight(0xffffff, 2)
-light.position.set(0, 2, 10)
+const light = new THREE.DirectionalLight(0xffffff, 1)
+light.position.set(0, 2, 3)
 scene.add(light)
+
+const light2 = new THREE.DirectionalLight(0xffffff, 1)
+light2.position.set(5, 0, 1)
+scene.add(light2)
+
+const light3 = new THREE.DirectionalLight(0xffffff, 1)
+light3.position.set(-5, 0, 1)
+scene.add(light3)
+
+const light4 = new THREE.DirectionalLight(0xffffff, 1)
+light4.position.set(0, 0, -5)
+scene.add(light4)
 
 
 
@@ -47,7 +62,7 @@ const sizes = {
 }
 
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.001, 100)
-camera.position.z = 1
+camera.position.z = 0.7
 scene.add(camera)
 
 const canvas = document.querySelector('.webgl')
@@ -57,9 +72,9 @@ const renderer = new THREE.WebGLRenderer({
 })
 
 const controls = new OrbitControls(camera, renderer.domElement);
-controls.enablePan = false;
+controls.enablePan = true;
 controls.enableDamping = false;
-controls.enableZoom = true;
+controls.enableZoom = false;
 
 controls.minPolarAngle = Math.PI / 2 - 0.4; // radians
 controls.maxPolarAngle = Math.PI / 2 - 0.4 ; // radians
@@ -113,21 +128,19 @@ function handleScreenChangeLarge(mediaQuery) {
 const mediaQueryLarge = window.matchMedia("(min-width: 1150px)");
 mediaQueryLarge.addEventListener('change', handleScreenChangeLarge);;
 
-
-
-
-
-
-
-
 renderer.setSize(sizes.width, sizes.height);
 
+// Create an EffectComposer
+const composer = new EffectComposer(renderer);
 
+// Add a RenderPass to render the scene
+const renderPass = new RenderPass(scene, camera);
+composer.addPass(renderPass);
 
 
 
 function animate() {
-    requestAnimationFrame(animate)
+    requestAnimationFrame(animate);
 
     if (earthMesh && earthMesh.mixer) {
         earthMesh.mixer.update(0.016); // You can pass the time delta for smoother animation
@@ -135,7 +148,6 @@ function animate() {
 
     controls.update();
 
-    renderer.render(scene, camera)
+    composer.render();
 }
-
 animate()
