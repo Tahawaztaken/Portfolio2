@@ -143,7 +143,7 @@ function animate() {
     requestAnimationFrame(animate);
 
     if (earthMesh && earthMesh.mixer) {
-        earthMesh.mixer.update(0.016); // You can pass the time delta for smoother animation
+        earthMesh.mixer.update(0.005); // You can pass the time delta for smoother animation
     }
 
     controls.update();
