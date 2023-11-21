@@ -16,9 +16,10 @@ let earthMesh; // Store the reference to the loaded object
 loader.load( 'assets/img/NeutralIdle.fbx', function ( fbx ) {
     const root = fbx;
     root.scale.set(2, 2, 2);
-    root.position.set(0, -0.6, 0);
+    root.position.set(0, -0.59, 0);
     root.traverse(function(obj) { obj.frustumCulled = false; });
     earthMesh = fbx;
+
 
     // Assuming there's at least one animation
     if (fbx.animations.length > 0) {
@@ -35,6 +36,8 @@ loader.load( 'assets/img/NeutralIdle.fbx', function ( fbx ) {
 }, undefined, function (error) {
     console.error(error);
 });
+
+
 
 const light = new THREE.DirectionalLight(0xffffff, 1)
 light.position.set(0, 2, 3)
@@ -58,13 +61,12 @@ const parentContainer = document.getElementById("home-perfil");
 
 const sizes = {
     width: parentContainer.offsetWidth * 1.25,
-    height: parentContainer.offsetHeight
+    height: parentContainer.offsetHeight * 1.1
 }
 
-const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.001, 100)
-camera.position.z = 0.7
-scene.add(camera)
-
+const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height)
+camera.position.z = 0.67
+camera.position.x = -0.1
 const canvas = document.querySelector('.webgl')
 const renderer = new THREE.WebGLRenderer({
     canvas: canvas,
