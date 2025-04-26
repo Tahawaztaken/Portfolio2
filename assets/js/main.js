@@ -144,6 +144,7 @@ sr.reveal('.about__image', {origin: 'right'})
 
 
 sr.reveal('.projects__card', {interval: 100})
+sr.reveal('.experience__card', {interval: 100})
 
 
 sr.reveal('.contact__data', {origin: 'left'})
