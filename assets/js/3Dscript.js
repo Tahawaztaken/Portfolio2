@@ -29,11 +29,10 @@ loader.load('assets/img/LookAround.fbx', function (fbx) {
 
     // After LookAround ends, switch to NeutralIdle
     mixer.addEventListener('finished', function () {
-      idleAction.reset();
-      idleAction.crossFadeFrom(lookAroundAction, 0.2, true);
-      idleAction.play();
-  });
-  
+        idleAction.reset();
+        idleAction.crossFadeFrom(lookAroundAction, 0.2, true);
+        idleAction.play();
+    });
 
     // Now load the idle animation separately
     loader.load('assets/img/NeutralIdle.fbx', function (idleFbx) {
@@ -45,22 +44,22 @@ loader.load('assets/img/LookAround.fbx', function (fbx) {
     console.error(error);
 });
 
-// lights
-const light = new THREE.DirectionalLight(0xffffff, 1);
-light.position.set(0, 2, 3);
-scene.add(light);
+// --- Lights ---
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+scene.add(ambientLight);
 
-const light2 = new THREE.DirectionalLight(0xffffff, 1);
-light2.position.set(5, 0, 1);
-scene.add(light2);
+const mainLight = new THREE.DirectionalLight(0xffffff, 1.0);
+mainLight.position.set(0, 2, 3);
+scene.add(mainLight);
 
-const light3 = new THREE.DirectionalLight(0xffffff, 1);
-light3.position.set(-5, 0, 1);
-scene.add(light3);
+const sideLight = new THREE.DirectionalLight(0xffffff, 0.5);
+sideLight.position.set(5, 0, 1);
+scene.add(sideLight);
 
-const light4 = new THREE.DirectionalLight(0xffffff, 1);
-light4.position.set(0, 0, -5);
-scene.add(light4);
+const backLight = new THREE.DirectionalLight(0xffffff, 0.4);
+backLight.position.set(-5, 0, 1);
+scene.add(backLight);
+
 
 // camera, renderer, controls
 const parentContainer = document.getElementById("home-perfil");
@@ -98,7 +97,7 @@ function animate() {
     requestAnimationFrame(animate);
 
     if (mixer) {
-        mixer.update(0.005); // Small delta time for smooth animation
+        mixer.update(0.005);
     }
 
     controls.update();
