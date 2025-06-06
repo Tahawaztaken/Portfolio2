@@ -91,12 +91,13 @@ function handleScreenChangeSmall(mediaQuery) {
 
       console.log("Screen width is below 340px");
       renderer.setSize(newWidth, newHeight);
+      composer.setSize(newWidth, newHeight);
       camera.aspect = newWidth / newHeight;
       camera.updateProjectionMatrix();
     }
   }
 const mediaQuerySmall = window.matchMedia("(max-width: 340px)");
-mediaQuerySmall.addEventListener('change', handleScreenChangeSmall);;
+mediaQuerySmall.addEventListener('change', handleScreenChangeSmall);
 
 //MEDIA SCREEN 341 - 576PX
 function handleScreenChangeMedium(mediaQuery) {
@@ -107,12 +108,13 @@ function handleScreenChangeMedium(mediaQuery) {
 
       console.log("Screen width is below 340px");
       renderer.setSize(newWidth, newHeight);
+      composer.setSize(newWidth, newHeight);
       camera.aspect = newWidth / newHeight;
       camera.updateProjectionMatrix();
     }
   }
 const mediaQueryMedium = window.matchMedia("(min-width: 341px) and (max-width: 1149px)");
-mediaQueryMedium.addEventListener('change', handleScreenChangeMedium);;
+mediaQueryMedium.addEventListener('change', handleScreenChangeMedium);
 
 //MEDIA SCREEN 341 - 576PX
 function handleScreenChangeLarge(mediaQuery) {
@@ -123,17 +125,19 @@ function handleScreenChangeLarge(mediaQuery) {
 
       console.log("Screen width is below 340px");
       renderer.setSize(newWidth, newHeight);
+      composer.setSize(newWidth, newHeight);
       camera.aspect = newWidth / newHeight;
       camera.updateProjectionMatrix();
     }
   }
 const mediaQueryLarge = window.matchMedia("(min-width: 1150px)");
-mediaQueryLarge.addEventListener('change', handleScreenChangeLarge);;
+mediaQueryLarge.addEventListener('change', handleScreenChangeLarge);
 
 renderer.setSize(sizes.width, sizes.height);
 
 // Create an EffectComposer
 const composer = new EffectComposer(renderer);
+composer.setSize(sizes.width, sizes.height);
 
 // Add a RenderPass to render the scene
 const renderPass = new RenderPass(scene, camera);
