@@ -24,7 +24,7 @@ loader.load('assets/img/LookAround.fbx', function (fbx) {
     lookAroundAction = mixer.clipAction(fbx.animations[0]);
     lookAroundAction.setLoop(THREE.LoopOnce);
     lookAroundAction.clampWhenFinished = true;
-    lookAroundAction.timeScale = 5;
+    lookAroundAction.timeScale = 2.5;
     lookAroundAction.play();
 
     // After LookAround ends, switch to NeutralIdle
